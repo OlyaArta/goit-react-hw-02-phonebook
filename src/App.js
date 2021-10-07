@@ -27,11 +27,12 @@ class App extends React.Component {
       if (contacts.some((contact) => contact.name === name)) {
         return alert(`${name} is already in contacts!`);
       }
+      return { contacts: [newContact, ...contacts] };
     });
 
-    this.setState(({ contacts }) => ({
-      contacts: [newContact, ...contacts],
-    }));
+    // this.setState(({ contacts }) => ({
+    //   contacts: [newContact, ...contacts],
+    // }));
   };
 
   watchFilter = (event) => {
@@ -55,8 +56,8 @@ class App extends React.Component {
   };
 
   render() {
-    const filter = this.state;
-    const results = this.filterContacts;
+    const { filter } = this.state;
+    const results = this.filterContacts();
     return (
       <Container>
         <h1>Phonebook</h1>
