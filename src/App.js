@@ -1,22 +1,27 @@
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+import React from "react";
+import Container from "./components/container/Container";
+import Form from "./components/form/Form";
 
-// export default App;
+class App extends React.Component {
+  state = {
+    contacts: [],
+  };
+
+  formSubmitHandler = (data) => {
+    console.log(data);
+  };
+
+  render() {
+    return (
+      <Container>
+        <h1>Phonebook</h1>
+        <Form onSubmit={this.formSubmitHandler} />
+
+        <h2>Contacts</h2>
+        <ul></ul>
+      </Container>
+    );
+  }
+}
+
+export default App;
