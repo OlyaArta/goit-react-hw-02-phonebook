@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import shortid from "shortid";
 import PropTypes from "prop-types";
+import s from "./Form.module.css";
 
 class Form extends Component {
   state = {
@@ -32,8 +33,10 @@ class Form extends Component {
   render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor={this.nameInputId}>Name</label>
+        <form onSubmit={this.handleSubmit} className={s.form}>
+          <label htmlFor={this.nameInputId} className={s.label}>
+            Name
+          </label>
           <input
             type="text"
             name="name"
@@ -43,9 +46,12 @@ class Form extends Component {
             value={this.state.name}
             onChange={this.handleChange}
             id={this.nameInputId}
+            className={s.input}
           />
 
-          <label htmlFor={this.numberInputId}>Number</label>
+          <label htmlFor={this.numberInputId} className={s.label}>
+            Number
+          </label>
           <input
             type="tel"
             name="number"
@@ -55,9 +61,12 @@ class Form extends Component {
             value={this.state.number}
             onChange={this.handleChange}
             id={this.numberInputId}
+            className={s.input}
           />
 
-          <button type="submit">Add contact</button>
+          <button type="submit" className={s.btn}>
+            Add contact
+          </button>
         </form>
       </>
     );

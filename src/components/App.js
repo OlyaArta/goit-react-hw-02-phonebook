@@ -1,9 +1,9 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-import Container from "./components/container/Container";
-import Form from "./components/form/Form";
-import ContactList from "./components/contactList/ContactList";
-import Filter from "./components/filter/Filter";
+import Container from "./container/Container";
+import Form from "./form/Form";
+import ContactList from "./contactList/ContactList";
+import Filter from "./filter/Filter";
 
 class App extends React.Component {
   state = {
@@ -27,12 +27,11 @@ class App extends React.Component {
       if (contacts.some((contact) => contact.name === name)) {
         return alert(`${name} is already in contacts!`);
       }
-      return { contacts: [newContact, ...contacts] };
     });
 
-    // this.setState(({ contacts }) => ({
-    //   contacts: [newContact, ...contacts],
-    // }));
+    this.setState(({ contacts }) => ({
+      contacts: [newContact, ...contacts],
+    }));
   };
 
   watchFilter = (event) => {
