@@ -9,6 +9,10 @@ class Form extends Component {
     number: "",
   };
 
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
+
   nameInputId = shortid.generate();
   numberInputId = shortid.generate();
 
@@ -73,8 +77,8 @@ class Form extends Component {
   }
 }
 
-Form.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+// Form.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };
 
 export default Form;
